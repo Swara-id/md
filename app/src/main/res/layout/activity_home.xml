@@ -1,6 +1,183 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".ui.home.HomeActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Profile Section -->
+    <LinearLayout
+        android:id="@+id/profile_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:layout_alignParentTop="true"
+        android:background="#F3CA52">
+
+        <!-- Profile Image -->
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="16dp"
+            android:background="@android:color/darker_gray"
+            android:scaleType="centerCrop" />
+
+        <!-- User Info -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/welcome_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hi, Hidayatullah Akbar"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/invite_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ayo berinteraksi dengan teman tuli!"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/points_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100 Point"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Sign Language Options -->
+    <LinearLayout
+        android:id="@+id/sign_language_options"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/profile_section"
+        android:layout_marginTop="16dp"
+        android:padding="16dp"
+        android:gravity="center">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:background="@android:color/darker_gray"
+            android:layout_marginEnd="8dp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:background="@android:color/darker_gray"
+            android:layout_marginEnd="8dp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:background="@android:color/darker_gray"/>
+    </LinearLayout>
+
+    <!-- Recent Activities -->
+    <TextView
+        android:id="@+id/recent_activities_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="lallalaalal!"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@id/sign_language_options"
+        android:layout_marginTop="16dp"
+        android:paddingStart="16dp"/>
+
+    <LinearLayout
+        android:id="@+id/recent_activities_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/recent_activities_text"
+        android:layout_marginTop="8dp"
+        android:padding="16dp">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@android:color/darker_gray"
+            android:layout_marginEnd="8dp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@android:color/darker_gray"/>
+    </LinearLayout>
+
+    <!-- Continue Learning -->
+    <TextView
+        android:id="@+id/continue_learning_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lanjutkan proses belajarmu!"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@id/recent_activities_layout"
+        android:layout_marginTop="16dp"
+        android:paddingStart="16dp"/>
+
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="#F3E9CC"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Beranda"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/translate"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Terjemahkan"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/sign"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Isyaratkan"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/profile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Profil"
+            android:textSize="14sp"/>
+    </LinearLayout>
+</RelativeLayout>
