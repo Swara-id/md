@@ -51,15 +51,29 @@
 
 
         <EditText
-            android:id="@+id/name"
+            android:id="@+id/full_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name"
+            android:hint="Full Name"
             android:inputType="textEmailAddress"
             android:layout_marginBottom="16dp"
             android:padding="12dp"
             android:background="@drawable/edit_text_background"
             android:textColor="@android:color/black"/>
+
+
+        <EditText
+            android:id="@+id/user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            android:inputType="textEmailAddress"
+            android:layout_marginBottom="16dp"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_background"
+            android:textColor="@android:color/black"/>
+
+
 
         <EditText
             android:id="@+id/email"
@@ -102,7 +116,7 @@
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Log In"
+            android:text="Sign Up"
             android:textColor="#FFFFFF"
             android:backgroundTint="#F3CA52"
             android:layout_marginBottom="16dp"/>

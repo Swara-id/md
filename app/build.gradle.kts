@@ -36,6 +36,16 @@ android {
 }
 
 dependencies {
+    implementation("androidx.camera:camera-camera2:1.0.0")
+    implementation("androidx.camera:camera-lifecycle:1.0.0")
+    implementation("androidx.camera:camera-view:1.0.0-alpha27")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3")
+    implementation("androidx.camera:camera-core:1.1.0-alpha10")
+    implementation("androidx.camera:camera-camera2:1.1.0-alpha10")
+    implementation("androidx.camera:camera-lifecycle:1.1.0-alpha10")
+    implementation("androidx.camera:camera-view:1.0.0-alpha30")
+    implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-alpha01")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.1")

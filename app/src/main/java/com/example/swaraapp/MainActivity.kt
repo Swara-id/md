@@ -1,36 +1,44 @@
 package com.example.swaraApp
-
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.CheckBox
-import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.swaraapp.R
+import com.example.swaraapp.ui.home.HomeActivity
+import com.example.swaraapp.ui.login.LoginActivity
+import com.example.swaraapp.ui.signup.SignUpActivity
 
 class MainActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
 
-        val btnLogin = findViewById<Button>(R.id.btnLogin)
-        val signUp = findViewById<TextView>(R.id.sign_up)
-        val rememberMe = findViewById<CheckBox>(R.id.remember_me)
-        val forgotPassword = findViewById<TextView>(R.id.forgot_password)
-        val email = findViewById<EditText>(R.id.email)
-        val password = findViewById<EditText>(R.id.password)
+        // Periksa status login pengguna
+        val sharedPreferences = getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE)
+        val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
+
+        if (isLoggedIn) {
+            // Jika sudah login, arahkan ke halaman utama
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+            return
+        }
+
+        // Jika belum login, tampilkan aktivitas welcome
+        setContentView(R.layout.activity_welcome)
+
+        val btnLogin: Button = findViewById(R.id.btnLogin)
+        val btnSignUp: Button = findViewById(R.id.btnSignUp)
 
         btnLogin.setOnClickListener {
-            // Handle login button click
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
 
-        signUp.setOnClickListener {
-            // Handle sign up text click
-        }
-
-        forgotPassword.setOnClickListener {
-            // Handle forgot password text click
+        btnSignUp.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
         }
     }
 }
