@@ -1,5 +1,6 @@
 package com.example.swaraapp.ui.login
-
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
@@ -10,9 +11,9 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.example.swaraapp.R
+import com.example.swaraapp.ui.home.HomeActivity
 
 class LoginActivity : AppCompatActivity() {
-
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var rememberMeCheckBox: CheckBox
@@ -42,9 +43,16 @@ class LoginActivity : AppCompatActivity() {
         loginViewModel.loginResult.observe(this, Observer { result ->
             if (result) {
                 Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
-                // Navigate to the next screen
+                saveLoginStatus(true) // Simpan status login pengguna saat berhasil login
+                navigateToHome()
             } else {
                 Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT).show()
+            }
+        })
+
+        loginViewModel.loginError.observe(this, Observer { error ->
+            if (error != null) {
+                Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
             }
         })
 
@@ -56,5 +64,17 @@ class LoginActivity : AppCompatActivity() {
             // Handle forgot password
         }
     }
-}
 
+    private fun navigateToHome() {
+        val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun saveLoginStatus(status: Boolean) {
+        val sharedPreferences = getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("isLoggedIn", status)
+        editor.apply()
+    }
+}
