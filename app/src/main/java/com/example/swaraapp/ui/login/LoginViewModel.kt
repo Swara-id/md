@@ -6,12 +6,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.swaraapp.api.LoginRequest
 import com.example.swaraapp.api.RetrofitInstance
+import com.example.swaraapp.api.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 
 class LoginViewModel : ViewModel() {
+    private val _userdata = MutableLiveData<User?>()
+
+    val userData : MutableLiveData<User?> = _userdata
 
     private val _loginResult = MutableLiveData<Boolean>()
     val loginResult: LiveData<Boolean> get() = _loginResult
@@ -32,8 +36,10 @@ class LoginViewModel : ViewModel() {
                 }
                 if (response.isSuccessful) {
                     val responseBody = response.body()
-                    if (responseBody != null) {
+                    if (responseBody != null)
+                    {
                         _loginResult.value = true
+                        _userdata.value = response.body()?.user
                     } else {
                         _loginError.value = "Login failed: ${response.message()}"
                     }

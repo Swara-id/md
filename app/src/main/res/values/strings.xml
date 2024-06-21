@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">SwaraApp</string>
+    <string name="gather_description">\n</string>
+    <string name="together_description">\n</string>
+    <string name="challenge_description" />
+    <string name="practice_description" />
+    <string name="profile_picture">\n</string>
+    <string name="back_button" />
+    <string name="tambahkan_isyarat">Kumpul Isyarat</string>
+    <string name="judul_atau_ringkasan_kejadian">Judul atau Ringkasan Kejadian</string>
+    <string name="deskripsi_kejadian_secara_rinci">Deskripsi Kejadian Secara Rinci...</string>
+    <string name="tambahkan_foto_video_bukti_optional">Tambahkan Foto/Video Bukti (optional)</string>
+    <string name="kirim_laporan">Kirim Laporan</string>
 </resources>

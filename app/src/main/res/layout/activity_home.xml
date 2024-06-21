@@ -30,29 +30,48 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/welcome_text"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hi, Hidayatullah Akbar"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/welcome_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hi,"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/user_name_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="User"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="4dp"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/invite_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ayo berinteraksi dengan teman tuli!"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:id="@+id/points_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="100 Point"
+                android:text="0 Point"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                android:layout_marginTop="4dp"/>
+                android:layout_marginTop="4dp"
+                android:textColor="@android:color/white" />
         </LinearLayout>
     </LinearLayout>
 
@@ -67,25 +86,104 @@
         android:padding="16dp"
         android:gravity="center">
 
-        <View
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@android:color/darker_gray"
-            android:layout_marginEnd="8dp"/>
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginEnd="8dp">
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_weight="1"
-            android:background="@android:color/darker_gray"
-            android:layout_marginEnd="8dp"/>
+            <ImageButton
+                android:id="@+id/button_practice"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_practice"
+                android:contentDescription="@string/practice_description"
+                android:onClick="onPracticeClick" />
 
-        <View
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Latihan Isyarat"
+                android:textSize="14sp"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@android:color/darker_gray"/>
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginEnd="8dp">
+
+            <ImageButton
+                android:id="@+id/button_challenge"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_challenge"
+                android:contentDescription="@string/challenge_description"
+                android:onClick="onChallengeClick" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tantangan Isyarat"
+                android:textSize="14sp"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginEnd="8dp">
+
+            <ImageButton
+                android:id="@+id/button_gather"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_gather"
+                android:contentDescription="@string/gather_description"
+                android:onClick="onGatherClick" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kumpul Isyarat"
+                android:textSize="14sp"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/button_together"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_together"
+                android:contentDescription="@string/together_description"
+                android:onClick="onTogetherClick" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bersama Isyarat"
+                android:textSize="14sp"
+                android:gravity="center"/>
+        </LinearLayout>
     </LinearLayout>
 
     <!-- Recent Activities -->
@@ -93,7 +191,7 @@
         android:id="@+id/recent_activities_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="lallalaalal!"
+        android:text="Kunjungi event teman tuli"
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_below="@id/sign_language_options"
@@ -112,9 +210,9 @@
         <View
             android:layout_width="0dp"
             android:layout_height="100dp"
+            android:layout_marginEnd="8dp"
             android:layout_weight="1"
-            android:background="@android:color/darker_gray"
-            android:layout_marginEnd="8dp"/>
+            android:background="@android:color/darker_gray" />
 
         <View
             android:layout_width="0dp"
@@ -128,7 +226,7 @@
         android:id="@+id/continue_learning_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lanjutkan proses belajarmu!"
+        android:text="Lihat leaderboard terkini"
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_below="@id/recent_activities_layout"
@@ -144,40 +242,88 @@
         android:background="#F3E9CC"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/home"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="Beranda"
-            android:textSize="14sp"/>
+            android:orientation="vertical"
+            android:gravity="center">
 
-        <TextView
-            android:id="@+id/translate"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Terjemahkan"
-            android:textSize="14sp"/>
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/home_symbol" />
 
-        <TextView
-            android:id="@+id/sign"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Isyaratkan"
-            android:textSize="14sp"/>
+            <TextView
+                android:id="@+id/home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Beranda"
+                android:textSize="14sp"
+                android:gravity="center"/>
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/profile"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="Profil"
-            android:textSize="14sp"/>
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/translate_symbol" />
+
+            <TextView
+                android:id="@+id/translate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Terjemahkan"
+                android:textSize="14sp"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/isyaratkan_translate" />
+
+            <TextView
+                android:id="@+id/sign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Isyaratkan"
+                android:textSize="14sp"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/profile_symbol" />
+
+            <TextView
+                android:id="@+id/profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profil"
+                android:textSize="14sp"
+                android:gravity="center"/>
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

@@ -11,6 +11,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.example.swaraapp.R
+import com.example.swaraapp.api.User
 import com.example.swaraapp.ui.home.HomeActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -22,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var signUpTextView: TextView
 
     private val loginViewModel: LoginViewModel by viewModels()
-
+    private lateinit var user: User
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -39,6 +40,12 @@ class LoginActivity : AppCompatActivity() {
             val password = passwordEditText.text.toString().trim()
             loginViewModel.login(email, password)
         }
+
+        loginViewModel.userData.observe(this, Observer{ result ->
+            if (result != null) {
+                user = result
+            }
+        })
 
         loginViewModel.loginResult.observe(this, Observer { result ->
             if (result) {
